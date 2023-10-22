@@ -60,6 +60,4 @@ def fetch_all_invoices():
     cursor.execute(sql, [total_var])
 
     cursor.rowfactory = lambda *args: dict(zip([d[0] for d in cursor.description], args))
-    data = cursor.fetchall()
-
-    return data
+    return cursor.fetchall()

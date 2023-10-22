@@ -12,7 +12,7 @@ def test():
 def calculate_fibonacci(inputData:Data):
     fibonacci_rpc = FibonacciRpcClient()
 
-    print(" [x] Requesting fib(%s)" % inputData.fibNumber)
+    print(f" [x] Requesting fib({inputData.fibNumber})")
     response = fibonacci_rpc.call(inputData.fibNumber)
     print(" [.] Got %r" % response)
 

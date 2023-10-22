@@ -18,8 +18,8 @@ class EmployeeForm(forms.ModelForm):
         salary = self.cleaned_data['salary']
         if salary < self.cleaned_data['job_id'].min_salary or salary > self.cleaned_data['job_id'].max_salary:
             raise forms.ValidationError(
-                'Invalid salary, must be in range [{}, {}]'.format(self.cleaned_data['job_id'].min_salary,
-                                                                   self.cleaned_data['job_id'].max_salary))
+                f"Invalid salary, must be in range [{self.cleaned_data['job_id'].min_salary}, {self.cleaned_data['job_id'].max_salary}]"
+            )
         return salary
 
     class Meta:
