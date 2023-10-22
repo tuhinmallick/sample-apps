@@ -18,14 +18,11 @@ def build_model(columns_len):
     # Y2 output will be fed from the second dense
     y2_output = Dense(units='1', name='ptratio_output')(second_dense)
 
-    # Define the model with the input layer and a list of output layers
-    model = Model(inputs=input_layer, outputs=[y1_output, y2_output])
-
-    return model
+    return Model(inputs=input_layer, outputs=[y1_output, y2_output])
 
 def run_training(dataset_split):
     norm_train_X, norm_test_X, norm_val_X, train_Y, test_Y, val_Y = prepare_datasets(dataset_split)
-    celery_log.info(f"Data prepared")
+    celery_log.info("Data prepared")
 
     model = build_model(len(norm_train_X[0]))
 

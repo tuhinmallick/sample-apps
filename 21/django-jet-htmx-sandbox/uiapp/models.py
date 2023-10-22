@@ -57,10 +57,10 @@ class EmployeeModel(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def natural_key(self):
-        return self.first_name + ' ' + self.last_name
+        return f'{self.first_name} {self.last_name}'
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return f'{self.first_name} {self.last_name}'
 
     class Meta:
         verbose_name = 'Employee'

@@ -8,5 +8,5 @@ celery_log = get_task_logger(__name__)
 @app.task(name='boston_housing.train_model')
 def train_model(dataset_split):
     run_training(dataset_split)
-    celery_log.info(f"Celery task completed!")
+    celery_log.info("Celery task completed!")
     return 'OK'
